@@ -24,7 +24,8 @@ app.get('/', (req, res) => res.json({ message: 'SkillSync API Running' }));
 
 // 
 app.get('/', (req, res) => {
-  res.send({ activeStatus:true,
+  res.send({ 
+    activeStatus:true,
     error:false,
    })
 })
