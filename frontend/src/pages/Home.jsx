@@ -107,7 +107,7 @@ export default function Home() {
             <p>Explore the latest opportunities from top companies</p>
           </div>
           <div className="featured-jobs-grid">
-            {featuredJobs.map(job => (
+            {(featuredJobs || []).map(job => (
               <div className="featured-job-card" key={job._id}>
                 <div className="job-card-header">
                   <div className="company-logo"><i className="fas fa-building"></i></div>
