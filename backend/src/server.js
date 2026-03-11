@@ -3,6 +3,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const path = require('path');
 const connectDB = require('./config/db');
+const { error } = require('console');
 
 dotenv.config();
 connectDB();
@@ -20,6 +21,13 @@ app.use('/api/applications', require('./routes/applications'));
 app.use('/api/profile', require('./routes/profile'));
 
 app.get('/', (req, res) => res.json({ message: 'SkillSync API Running' }));
+
+// 
+app.get('/', (req, res) => {
+  res.send({ activeStatus:true,
+    error:false,
+   })
+})
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
