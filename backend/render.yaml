@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: skillsync-backend
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - name: PORT
+        value: 5000
+      - name: MONGO_URI
+        value: mongodb://localhost:27017/skillsync
+      - name: JWT_SECRET
+        value: your_jwt_secret_key_here_change_in_production
+      - name: JWT_EXPIRE
+        value: 7d
+      - name: NODE_ENV
+        value: development
