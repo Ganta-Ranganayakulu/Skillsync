@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
+import API from '../api';
 
 const AuthContext = createContext();
 
@@ -19,8 +20,8 @@ export const AuthProvider = ({ children }) => {
         if (cached) setUser(JSON.parse(cached));
       } catch(e) {}
 
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      axios.get('/api/auth/me')
+      API.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      API.get('/api/auth/me')
         .then(res => {
           setUser(res.data);
           localStorage.setItem('cached_user', JSON.stringify(res.data));
@@ -37,18 +38,18 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = async (username, password) => {
-    const res = await axios.post('/api/auth/login', { username, password });
+    const res = await API.post('/api/auth/login', { username, password });
     localStorage.setItem('token', res.data.token);
-    axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
+    API.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
     setUser(res.data);
     localStorage.setItem('cached_user', JSON.stringify(res.data));
     return res.data;
   };
 
   const register = async (data) => {
-    const res = await axios.post('/api/auth/register', data);
+    const res = await API.post('/api/auth/register', data);
     localStorage.setItem('token', res.data.token);
-    axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
+    API.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
     setUser(res.data);
     localStorage.setItem('cached_user', JSON.stringify(res.data));
     return res.data;
@@ -57,12 +58,12 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('cached_user');
-    delete axios.defaults.headers.common['Authorization'];
+    delete API.defaults.headers.common['Authorization'];
     setUser(null);
   };
 
   const refreshUser = async () => {
-    const res = await axios.get('/api/auth/me');
+    const res = await API.get('/api/auth/me');
     setUser(res.data);
     localStorage.setItem('cached_user', JSON.stringify(res.data));
     return res.data;
