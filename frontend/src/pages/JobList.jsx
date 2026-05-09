@@ -31,7 +31,7 @@ export default function JobList() {
     setLoading(true);
     try {
       const res = await axios.get('/api/jobs', { params: Object.fromEntries(searchParams) });
-      setJobs(res.data.jobs); setTotal(res.data.total); setPages(res.data.pages);
+      setJobs(res.data.jobs || []); setTotal(res.data.total); setPages(res.data.pages);
     } catch(e) {} finally { setLoading(false); }
   };
 
@@ -114,7 +114,8 @@ export default function JobList() {
             <div className="results-header">
               <h2>{total} Jobs Found</h2>
             </div>
-            {loading ? <Loading /> : jobs?.length > 0 ? (
+            
+            /* {loading ? <Loading /> : jobs?.length > 0 ? (
               <div className="empty-state">
                 <i className="fas fa-search"></i>
                 <h3>No jobs found</h3>
@@ -155,6 +156,27 @@ export default function JobList() {
                         <Link to={`/jobs/${job._id}/apply`} className="btn btn-primary btn-small">Apply</Link>
                       </div>
                     </div>
+                  </div>
+                ))}
+              </div>
+            )} */
+            
+            {loading ? (
+              <Loading />
+            ) : jobs?.length === 0 ? (
+              <div className="empty-state">
+                <i className="fas fa-search"></i>
+                <h3>No jobs found</h3>
+                <p>Try adjusting your search filters</p>
+                <Link to="/jobs" className="btn btn-primary">
+                  Clear Filters
+                </Link>
+              </div>
+            ) : (
+              <div className="job-listings">
+                {jobs?.map(job => (
+                  <div className="job-card" key={job._id}>
+                    ...
                   </div>
                 ))}
               </div>
