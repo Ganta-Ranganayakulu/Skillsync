@@ -114,7 +114,7 @@ export default function JobList() {
             <div className="results-header">
               <h2>{total} Jobs Found</h2>
             </div>
-            {loading ? <Loading /> : jobs?.length === 0 ? (
+            {loading ? <Loading /> : jobs?.length > 0 ? (
               <div className="empty-state">
                 <i className="fas fa-search"></i>
                 <h3>No jobs found</h3>
