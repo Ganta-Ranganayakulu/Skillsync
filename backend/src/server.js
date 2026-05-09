@@ -9,7 +9,7 @@ connectDB();
 
 const app = express();
 
-app.use(cors({ origin: '*', methods: ['GET','POST','PUT','DELETE','OPTIONS'], allowedHeaders: ['Content-Type','Authorization'] }));
+app.use(cors({ origin: 'https://skillsync-kappa-self.vercel.app', methods: ['GET','POST','PUT','DELETE','OPTIONS'], allowedHeaders: ['Content-Type','Authorization'], credentials: true}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
