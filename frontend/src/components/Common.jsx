@@ -35,7 +35,7 @@ export function Footer() {
           <div className="footer-section">
             <h4>Contact</h4>
             <ul>
-              <li><a href="https://www.linkedin.com/in/gantaranganayakulu/">Linkedin</a></li>
+              <li <i className="fas fa-map-marker-alt"></i><a href="https://www.linkedin.com/in/gantaranganayakulu/">Linkedin</a></li>
               
               <li><i className="fas fa-map-marker-alt"></i> Andhrapradesh India</li>
             </ul>
