@@ -35,9 +35,9 @@ export function Footer() {
           <div className="footer-section">
             <h4>Contact</h4>
             <ul>
-              <li><i className="fas fa-envelope"></i> support@skillsync.com</li>
-              <li><i className="fas fa-phone"></i> +91 89782617##</li>
-              <li><i className="fas fa-map-marker-alt"></i> 1 Street, Macherla, Andhrapradesh India</li>
+              <li><i className="fas fa-envelope"></i> rangaganta2004@gmail.com</li>
+              <li><i className="fas fa-phone"></i> +91 8978261788</li>
+              <li><i className="fas fa-map-marker-alt"></i> Andhrapradesh India</li>
             </ul>
           </div>
         </div>
