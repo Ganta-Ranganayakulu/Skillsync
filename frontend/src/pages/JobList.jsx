@@ -115,51 +115,7 @@ export default function JobList() {
               <h2>{total} Jobs Found</h2>
             </div>
             
-            /* {loading ? <Loading /> : jobs?.length > 0 ? (
-              <div className="empty-state">
-                <i className="fas fa-search"></i>
-                <h3>No jobs found</h3>
-                <p>Try adjusting your search filters</p>
-                <Link to="/jobs" className="btn btn-primary">Clear Filters</Link>
-              </div>
-            ) : (
-              <div className="job-listings">
-                {jobs.map(job => (
-                  <div className="job-card" key={job._id}>
-                    <div className="job-card-header">
-                      <div className="company-logo-placeholder"><i className="fas fa-building"></i></div>
-                      <div className="job-title-section">
-                        <h3><Link to={`/jobs/${job._id}`}>{job.title}</Link></h3>
-                        <span className="company-name">{job.company_name}</span>
-                      </div>
-                      <JobTypeBadge type={job.job_type} />
-                    </div>
-                    <div className="job-card-body">
-                      <div className="job-details">
-                        <span className="detail-item"><i className="fas fa-map-marker-alt"></i>{job.location}</span>
-                        <span className="detail-item"><i className="fas fa-dollar-sign"></i>{formatSalary(job)}</span>
-                        <span className="detail-item"><i className="fas fa-layer-group"></i>{expLabel(job.experience_level)}</span>
-                      </div>
-                      <div className="job-skills">
-                        {(job.skills_required||'').split(',').filter(Boolean).slice(0,5).map((s,i) => (
-                          <span key={i} className="skill-tag">{s.trim()}</span>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="job-card-footer">
-                      <span className="posted-date"><i className="fas fa-clock"></i>{timeAgo(job.createdAt)}</span>
-                      <div className="job-actions">
-                        <button className="btn btn-icon btn-outline" onClick={() => handleSave(job._id)} title="Save job">
-                          <i className="fas fa-bookmark"></i>
-                        </button>
-                        <Link to={`/jobs/${job._id}`} className="btn btn-outline btn-small">View Details</Link>
-                        <Link to={`/jobs/${job._id}/apply`} className="btn btn-primary btn-small">Apply</Link>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )} */
+           
             
             {loading ? (
               <Loading />
