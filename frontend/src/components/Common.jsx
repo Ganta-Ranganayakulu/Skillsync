@@ -10,10 +10,10 @@ export function Footer() {
             <h3><i className="fas fa-brain"></i> SkillSync</h3>
             <p>AI-powered intelligent job search system that connects job seekers with their dream job using advanced matching algorithms.</p>
             <div className="social-links">
-              <a href="#"><i className="fab fa-facebook-f"></i></a>
-              <a href="#"><i className="fab fa-twitter"></i></a>
-              <a href="#"><i className="fab fa-linkedin-in"></i></a>
-              <a href="#"><i className="fab fa-instagram"></i></a>
+              {/* <a href="#"><i className="fab fa-facebook-f"></i></a>
+              <a href="#"><i className="fab fa-twitter"></i></a> */}
+              <a href="https://www.linkedin.com/in/gantaranganayakulu/"><i className="fab fa-linkedin-in"></i></a>
+              {/* <a href="#"><i className="fab fa-instagram"></i></a> */}
             </div>
           </div>
           <div className="footer-section">
@@ -35,8 +35,8 @@ export function Footer() {
           <div className="footer-section">
             <h4>Contact</h4>
             <ul>
-              <li <i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/gantaranganayakulu/">Linkedin</a></li>
-              
+             
+              <a href="https://www.linkedin.com/in/gantaranganayakulu/"><i className="fab fa-linkedin-in"></i></a>
               <li><i className="fas fa-map-marker-alt"></i> Andhrapradesh India</li>
             </ul>
           </div>
